@@ -39,13 +39,14 @@ function dirname(path) {
 require.config({
   paths: {
     "binaryen": "https://cdn.jsdelivr.net/gh/AssemblyScript/binaryen.js@e41ec5c177e3d2cacccd4ccb1877ae29a7352dc1/index",
-    "assemblyscript": "https://cdn.jsdelivr.net/gh/nearprotocol/assemblyscript@82f1d5a/dist/assemblyscript",
-    "assemblyscript/bin/asc": "https://cdn.jsdelivr.net/gh/nearprotocol/assemblyscript@82f1d5a/dist/asc",
+    "assemblyscript": "https://cdn.jsdelivr.net/gh/nearprotocol/assemblyscript@a4aa1a5/dist/assemblyscript",
+    "assemblyscript/bin/asc": "https://cdn.jsdelivr.net/gh/nearprotocol/assemblyscript@a4aa1a5/dist/asc",
   }
 });
 logLn("Loading AssemblyScript compiler ...");
 require(["assemblyscript/bin/asc"], asc => {
   monaco.languages.typescript.typescriptDefaults.addExtraLib(asc.definitionFiles.assembly);
+  asc.runningInStudio = true;
   asc.main = (main => (args, options, fn) => {
     if (typeof options === "function") {
       fn = options;

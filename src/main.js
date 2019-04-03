@@ -7,7 +7,6 @@ const TENOR_API_KEY = 'CIDF1JJPZGRB';
 const TENOR_LIMIT = 20;
 
 // Defining global variables that we initialize asynchronously later.
-let config;
 let walletAccount;
 let accountId;
 let contractId;
@@ -251,7 +250,6 @@ async function signedInFlow() {
 // Initialization code
 async function init() {
   // Fetching studio/app specific config. It contains contract name and devnet url.
-  config = await nearlib.dev.getConfig();
   contractId = config.contractName;
   baseUrl = "https://app.near.ai/" + contractId.substring(contractId.length - 9);
 
