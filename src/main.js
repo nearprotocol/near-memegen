@@ -176,7 +176,7 @@ function submitMeme() {
         refreshMessages();
       }, 1000);
     })
-    .catch(config.log);
+    .catch(console.log);
 }
 
 async function initAnonId() {
@@ -250,7 +250,7 @@ async function signedInFlow() {
 // Initialization code
 async function init() {
   // Fetching studio/app specific config. It contains contract name and devnet url.
-  contractId = config.contractName;
+  contractId = nearConfig.contractName;
   baseUrl = "https://app.near.ai/" + contractId.substring(contractId.length - 9);
 
   // Initializing near and near client from the nearlib.
@@ -263,7 +263,7 @@ async function init() {
   // Initializing the contract.
   // For now we need to specify method names from the contract manually.
   // It also takes the Account ID which it would use for signing transactions.
-  contract = await near.loadContract(config.contractName, {
+  contract = await near.loadContract(nearConfig.contractName, {
     viewMethods: ["getMeme", "getNumMemes"],
     changeMethods: ["addMeme"],
     sender: accountId,
