@@ -254,7 +254,7 @@ async function init() {
   baseUrl = "https://app.near.ai/" + contractId.substring(contractId.length - 9);
 
   // Initializing near and near client from the nearlib.
-  near = await nearlib.dev.connect();
+  near = await nearlib.dev.connect(nearConfig);
 
   // Getting the Account ID. If unauthorized yet, it's just empty string.
   // accountId = walletAccount.getAccountId();
