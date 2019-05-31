@@ -7,6 +7,7 @@
             case 'production':
             case 'development':
                 return {
+                    networkId: 'default',
                     nodeUrl: 'https://studio.nearprotocol.com/devnet',
                     helperUrl: 'https://studio.nearprotocol.com/contract-api',
                     contractName: CONTRACT_NAME,
@@ -14,7 +15,8 @@
             case 'local':
             case 'test':
                 return {
-                    nodeUrl: 'http://localhost:8080',
+                    networkId: 'local',
+                    nodeUrl: 'http://localhost:3030',
                     contractName: CONTRACT_NAME
                 };
             default:
